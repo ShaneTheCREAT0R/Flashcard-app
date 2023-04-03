@@ -1,13 +1,9 @@
-import React from 'react'
+import React from "react";
 
-
-
-export default function NextButton() {
-    function nextHandler(event){
-        return null
-    }
-  
-    return (
-    <button onClick={nextHandler}>Next</button>
-  )
+export default function NextButton({ NextCardHandler }) {
+  return (
+    <button type="button" className="btn btn-success" onClick={NextCardHandler}>
+      Next
+    </button>
+  );
 }

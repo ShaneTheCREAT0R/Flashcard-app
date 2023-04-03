@@ -5,29 +5,31 @@ import StudyScreenBreadcrumbNavBar from "./StudyScreenBreadcrumbNavBar";
 import StudyCard from "./StudyCard";
 
 export default function Study() {
-  const {deckId} = useParams()
-  const [deck, setDeck] = useState()
+  const [deck, setDeck] = useState({});
+  const [cards, setCards] = useState([]);
+  const [currentCard, setCurrentCard] = useState({});
+  const deckId = useParams().deckId;
  
+  // Loading the specified deck from the API
   useEffect(() => {
     async function loadDeck() {
-        const response = readDeck(deckId)
-        const deckFromAPI = await response
-        console.log(deckFromAPI)
-        setDeck(deckFromAPI);
+      const response = readDeck(deckId);
+      const deckFromAPI = await response;
+      setDeck(deckFromAPI);
+      setCards(deckFromAPI.cards);
+      setCurrentCard(deckFromAPI.cards[0]);
     }
     loadDeck();
-    }, []);
-  
-let cards= []
-if (deck) cards = deck.cards
-
+  }, [deckId]);
 
     return (
-    <div> 
-      {cards.map((card) =>{
-        return <StudyCard front={card.front} back={card.back}/>
-      })}
-     
+    <div>
+      <StudyScreenBreadcrumbNavBar deckId={deckId} deck={deck}/>
+     <StudyCard 
+        cards={cards} 
+        currentCard={currentCard} 
+        setCurrentCard={setCurrentCard}
+        deckId={deckId} />     
     </div>
   )
 }
