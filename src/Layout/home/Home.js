@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { listDecks } from "../../utils/api/index";
-// import "./Home.css";
+import "./Home.css";
 
 import CreateDeckButton from "./CreateDeckButton";
 import ViewDeckButton from "./ViewDeckButton";
