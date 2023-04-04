@@ -6,10 +6,10 @@ import Header from "./Header";
 import Home from "./home/Home";
 import Study from "./decks-study/Study";
 import CreateDeckScreen from "./decks-new/CreateDeckScreen";
-// import DeckScreen from "./decks/DeckScreen";
-// import EditDeckScreen from "./decks-edit/EditDeckScreen";
-// import AddCardScreen from "./decks-cards/new/AddCardScreen";
-// import EditCardScreen from "./decks-cards/edit/EditCardScreen";
+import DeckScreen from "./decks/DeckScreen";
+import EditDeckScreen from "./decks-edit/EditDeckScreen";
+import AddCardScreen from "./decks-cards/new/AddCardScreen";
+import EditCardScreen from "./decks-cards/edit/EditCardScreen";
 import NotFound from "./NotFound";
 
 function Layout() {
@@ -31,7 +31,7 @@ function Layout() {
            <CreateDeckScreen />
         </Route>
 
-        {/* <Route path="/decks/:deckId">
+        <Route exact path="/decks/:deckId">
            <DeckScreen />
         </Route>
         
@@ -45,7 +45,7 @@ function Layout() {
 
         <Route path="/decks/:deckId/cards/:cardId/edit">
            <EditCardScreen />
-        </Route> */}
+        </Route>
 
          <Route>
            <NotFound />
